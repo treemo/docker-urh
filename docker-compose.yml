@@ -2,7 +2,7 @@ version: '2'
 
 services:
   urh:
-    build: treemo/urh
+    image: treemo/urh
     container_name: urh
     privileged: true
     volumes:

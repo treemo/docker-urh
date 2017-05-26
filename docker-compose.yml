@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  urh:
+    build: treemo/urh
+    container_name: urh
+    privileged: true
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - /etc/localtime:/etc/localtime:ro
+      - ./share:/root/share
+      - /dev/bus/usb:/dev/bus/usb
+      - /dev/shm:/dev/shm
+    environment:
+      - LANG
+      - LANGUAGE
+      - LC_ALL
+      - DISPLAY
+    devices:
+      - /dev/snd:/dev/snd:r
+      - /dev/dri/card0:/dev/dri/card0:r
+    cpu_shares: 73
+    cpu_quota: 50000
+    cpuset: 0,3
+    mem_limit: 2g
+    memswap_limit: 2g
+
